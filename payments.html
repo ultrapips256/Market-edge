@@ -14,7 +14,65 @@
   margin:0;
   padding:0;
 }
+<section class="proof" id="proof">
+  <div class="container">
+    <h2>Submit Payment Proof</h2>
+    <p>
+      After making your payment, send your payment details and screenshot
+      to Market Edge on WhatsApp for verification.
+    </p>
 
+    <div class="proof-box">
+      <label>Choose Product</label>
+      <select id="product">
+        <option>Signals Basic — $10/month</option>
+        <option>Signals Pro — $25/month</option>
+        <option>Signals Elite — $50/month</option>
+        <option>Bot Starter — $30</option>
+        <option>Bot Pro — $75</option>
+        <option>Bot Elite — $150</option>
+      </select>
+
+      <label>Your Name</label>
+      <input type="text" id="name" placeholder="Enter your name">
+
+      <label>Transaction ID / Reference</label>
+      <input type="text" id="transaction" placeholder="Enter transaction ID">
+
+      <button onclick="sendProof()">Send Proof on WhatsApp</button>
+
+      <p class="note">
+        📎 After WhatsApp opens, attach your payment screenshot before sending.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+function sendProof() {
+  const product = document.getElementById("product").value;
+  const name = document.getElementById("name").value;
+  const transaction = document.getElementById("transaction").value;
+
+  if (!name || !transaction) {
+    alert("Please enter your name and transaction ID.");
+    return;
+  }
+
+  const message =
+    "Hello Market Edge 👋%0A%0A" +
+    "I have made a payment.%0A" +
+    "Product: " + encodeURIComponent(product) + "%0A" +
+    "Name: " + encodeURIComponent(name) + "%0A" +
+    "Transaction ID: " + encodeURIComponent(transaction) + "%0A%0A" +
+    "I have attached my payment screenshot for verification.";
+
+  window.open(
+    "https://wa.me/256765560729?text=" + message,
+    "_blank"
+  );
+}
+</script>
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:#050505;
