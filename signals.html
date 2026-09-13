@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,189 +8,390 @@
 <title>Market Edge | Trading Signals</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#070a0d;
-  color:#f5f5f5;
-  line-height:1.6;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #070a0d;
+  color: #f5f5f5;
+  line-height: 1.6;
 }
 
-.container{
-  width:90%;
-  max-width:1100px;
-  margin:auto;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-nav{
-  border-bottom:1px solid #1c252b;
-  background:#070a0d;
-  padding:20px 0;
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
 }
 
-.nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+/* NAVIGATION */
+nav {
+  border-bottom: 1px solid #1c252b;
+  background: #070a0d;
+  padding: 20px 0;
 }
 
-.logo{
-  font-weight:900;
-  font-size:21px;
-  letter-spacing:1px;
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo span{
-  color:#35e58c;
+.logo {
+  font-weight: 900;
+  font-size: 21px;
+  letter-spacing: 1px;
 }
 
-.back{
-  color:#35e58c;
-  font-size:14px;
+.logo span {
+  color: #35e58c;
 }
 
-.hero{
-  text-align:center;
-  padding:80px 0 55px;
-  background:radial-gradient(circle at center,
-  rgba(53,229,140,.12),transparent 45%);
+.back {
+  color: #35e58c;
+  font-size: 14px;
 }
 
-.hero h1{
-  font-size:48px;
-  margin-bottom:15px;
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 0 55px;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(53,229,140,.12),
+      transparent 45%
+    );
 }
 
-.hero h1 span{
-  color:#35e58c;
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 15px;
 }
 
-.hero p{
-  color:#9aa3a8;
-  max-width:650px;
-  margin:auto;
+.hero h1 span {
+  color: #35e58c;
 }
 
-.section{
-  padding:55px 0;
+.hero p {
+  color: #9aa3a8;
+  max-width: 650px;
+  margin: auto;
 }
 
-.cards{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+/* SECTION */
+.section {
+  padding: 55px 0;
 }
 
-.card{
-  background:#0c1115;
-  border:1px solid #1d272d;
-  border-radius:15px;
-  padding:30px;
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
-.card:hover{
-  border-color:#35e58c;
+.card {
+  background: #0c1115;
+  border: 1px solid #1d272d;
+  border-radius: 15px;
+  padding: 30px;
+  transition: .25s;
 }
 
-.card h2{
-  margin-bottom:10px;
+.card:hover {
+  border-color: #35e58c;
+  transform: translateY(-4px);
 }
 
-.card p{
-  color:#929ba1;
-  font-size:14px;
+.card h2 {
+  margin-bottom: 10px;
 }
 
-.price{
-  font-size:35px;
-  font-weight:900;
-  margin:20px 0;
+.card p {
+  color: #929ba1;
+  font-size: 14px;
 }
 
-.price span{
-  font-size:13px;
-  color:#7d878d;
-  font-weight:normal;
+.price {
+  font-size: 35px;
+  font-weight: 900;
+  margin: 20px 0;
 }
 
-.features{
-  list-style:none;
-  color:#aeb5ba;
-  font-size:14px;
+.price span {
+  font-size: 13px;
+  color: #7d878d;
+  font-weight: normal;
 }
 
-.features li{
-  margin:12px 0;
+.features {
+  list-style: none;
+  color: #aeb5ba;
+  font-size: 14px;
 }
 
-.features li:before{
-  content:"✓";
-  color:#35e58c;
-  margin-right:8px;
+.features li {
+  margin: 12px 0;
 }
 
-.btn{
-  display:block;
-  text-align:center;
-  margin-top:25px;
-  padding:13px;
-  border-radius:8px;
-  background:#35e58c;
-  color:#06100a;
-  font-weight:900;
+.features li::before {
+  content: "✓";
+  color: #35e58c;
+  margin-right: 8px;
 }
 
-.example{
-  background:#0c1115;
-  border:1px solid #1d272d;
-  border-radius:15px;
-  padding:25px;
-  margin-top:25px;
+.btn {
+  display: block;
+  text-align: center;
+  margin-top: 25px;
+  padding: 13px;
+  border-radius: 8px;
+  background: #35e58c;
+  color: #06100a;
+  font-weight: 900;
 }
 
-.example h3{
-  margin-bottom:15px;
+/* SIGNAL EXAMPLE */
+.example {
+  background: #0c1115;
+  border: 1px solid #1d272d;
+  border-radius: 15px;
+  padding: 25px;
+  margin-top: 25px;
 }
 
-.signal{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
+.example h3 {
+  margin-bottom: 15px;
 }
 
-.signal div{
-  background:#080c0f;
-  padding:13px;
-  border-radius:7px;
-  border:1px solid #1b242a;
+.signal {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
-.signal small{
-  display:block;
-  color:#727c82;
+.signal div {
+  background: #080c0f;
+  padding: 13px;
+  border-radius: 7px;
+  border: 1px solid #1b242a;
 }
 
-.signal strong{
-  color:#35e58c;
+.signal small {
+  display: block;
+  color: #727c82;
 }
 
-.note{
-  color:#747e84;
-  font-size:12px;
-  margin-top:18px;
+.signal strong {
+  color: #35e58c;
 }
 
-.disclaimer{
-  border-top:1px solid #1c252b;
-  margin-top:50px;
-  padding:25px 0;
-  color:#687177;
-  font-size:11px;
+.note {
+  color: #747e84;
+  font-size: 12px;
+  margin-top: 18px;
 }
 
-@media(max-width:750px
+/* DISCLAIMER */
+.disclaimer {
+  border-top: 1px solid #1c252b;
+  margin-top: 50px;
+  padding: 25px 0;
+  color: #687177;
+  font-size: 11px;
+}
+
+/* MOBILE */
+@media (max-width: 750px) {
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .signal {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="container nav">
+
+    <div class="logo">
+      MARKET<span>EDGE</span>
+    </div>
+
+    <a class="back" href="index.html">
+      ← Back Home
+    </a>
+
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="container">
+
+    <h1>
+      Trading <span>Signals</span>
+    </h1>
+
+    <p>
+      Structured market ideas designed to help traders
+      plan entries, manage risk and execute with discipline.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- PRICING -->
+<section class="section">
+
+  <div class="container">
+
+    <div class="cards">
+
+      <!-- BASIC -->
+      <div class="card">
+
+        <h2>Basic</h2>
+
+        <p>
+          A simple signal package for traders
+          who want structured market ideas.
+        </p>
+
+        <div class="price">
+          $XX <span>/ month</span>
+        </div>
+
+        <ul class="features">
+          <li>Forex trade ideas</li>
+          <li>Entry levels</li>
+          <li>Stop-loss levels</li>
+          <li>Take-profit levels</li>
+          <li>Risk guidance</li>
+        </ul>
+
+        <a href="#" class="btn">
+          Subscribe
+        </a>
+
+      </div>
+
+
+      <!-- PRO -->
+      <div class="card">
+
+        <h2>Pro</h2>
+
+        <p>
+          More market coverage and additional
+          trading ideas for active traders.
+        </p>
+
+        <div class="price">
+          $XX <span>/ month</span>
+        </div>
+
+        <ul class="features">
+          <li>Everything in Basic</li>
+          <li>More trade ideas</li>
+          <li>Market analysis</li>
+          <li>Trade management guidance</li>
+          <li>Priority updates</li>
+        </ul>
+
+        <a href="#" class="btn">
+          Subscribe
+        </a>
+
+      </div>
+
+
+      <!-- ELITE -->
+      <div class="card">
+
+        <h2>Elite</h2>
+
+        <p>
+          Our most comprehensive signal package
+          for traders seeking additional market coverage.
+        </p>
+
+        <div class="price">
+          $XX <span>/ month</span>
+        </div>
+
+        <ul class="features">
+          <li>Everything in Pro</li>
+          <li>Premium market ideas</li>
+          <li>Detailed analysis</li>
+          <li>Advanced trade management</li>
+          <li>Premium support</li>
+        </ul>
+
+        <a href="#" class="btn">
+          Subscribe
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- SIGNAL EXAMPLE -->
+    <div class="example">
+
+      <h3>Example Signal Format</h3>
+
+      <div class="signal">
+
+        <div>
+          <small>PAIR</small>
+          <strong>EUR/USD</strong>
+        </div>
+
+        <div>
+          <small>DIRECTION</small>
+          <strong>BUY</strong>
+        </div>
+
+        <div>
+          <small>ENTRY</small>
+          <strong>1.XXXX</strong>
+        </div>
+
+        <div>
+          <small>STOP LOSS</small>
+          <strong>1.XXXX</strong>
+        </div>
+
+        <div>
+          <small>TAKE PROFIT 1</small>
+          <strong>1.XXXX</strong>
+        </div>
+
+        <div>
+          <small>TAKE PROFIT 2</
