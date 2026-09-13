@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Market Edge | Trading Bots</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #070a0d;
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* NAV */
+nav {
+  background: #070a0d;
+  border-bottom: 1px solid #1c252b;
+  padding: 20px 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: #35e58c;
+}
+
+.back {
+  color: #35e58c;
+  font-size: 14px;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 0 60px;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(53,229,140,.12),
+      transparent 45%
+    );
+}
+
+.hero h1 {
+  font-size: 48px;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.hero h1 span {
+  color: #35e58c;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: auto;
+  color: #9aa3a8;
+}
+
+/* SECTION */
+.section {
+  padding: 60px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: 34px;
+}
+
+.section-title p {
+  color: #89939a;
+  margin-top: 8px;
+}
+
+/* BOT CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: #0c1115;
+  border: 1px solid #1d272d;
+  border-radius: 15px;
+  padding: 30px;
+  transition: .25s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #35e58c;
+}
+
+.bot-icon {
+  font-size: 38px;
+  margin-bottom: 18px;
+}
+
+.card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #929ba1;
+  font-size: 14px;
+}
+
+.price {
+  font-size: 36px;
+  font-weight: 900;
+  margin: 20px 0;
+}
+
+.price span {
+  font-size: 13px;
+  color: #7d878d;
+  font-weight: normal;
+}
+
+.features {
+  list-style: none;
+  color: #aeb5ba;
+  font-size: 14px;
+}
+
+.features li {
+  margin: 12px 0;
+}
+
+.features li::before {
+  content: "✓";
+  color: #35e58c;
