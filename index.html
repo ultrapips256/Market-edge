@@ -429,7 +429,24 @@
       TRADE WITH<br>
       <span>AN EDGE.</span>
     </h1>
+<!-- LIVE MARKET TICKER -->
+<div class="live-market">
+  <div class="live-title">
+    <span class="live-dot"></span>
+    LIVE MARKETS
+  </div>
 
+  <tv-ticker-tape
+    symbols="FX:EURUSD,FX:GBPUSD,FX:AUDUSD,FX:USDJPY,BITSTAMP:BTCUSD"
+    theme="dark"
+    item-size="compact">
+  </tv-ticker-tape>
+</div>
+
+<script
+  type="module"
+  src="https://www.tradingview-widget.com/w/en/tv-ticker-tape.js">
+</script>
     <p>
       Market Edge provides trading tools, market insights,
       automated solutions and mentorship designed to help
