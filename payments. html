@@ -1,334 +1,138 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Market Edge | Payments</title>  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Edge | Pricing & Payments</title>
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #050505;
-      color: #fff;
-      line-height: 1.6;
-    }
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#050505;
+  color:white;
+}
 
-    header {
-      background: #080808;
-      border-bottom: 1px solid #202020;
-      padding: 18px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
 
-    .logo {
-      color: #39ff88;
-      font-size: 22px;
-      font-weight: bold;
-    }
+h1,h2{
+  text-align:center;
+  color:#00ff66;
+}
 
-    nav a {
-      color: #ddd;
-      text-decoration: none;
-      margin-left: 18px;
-      font-size: 14px;
-    }
+.plan{
+  background:#111;
+  border:1px solid #00ff66;
+  border-radius:15px;
+  padding:20px;
+  margin:15px 0;
+  box-shadow:0 0 10px rgba(0,255,102,.3);
+}
 
-    nav a:hover {
-      color: #39ff88;
-    }
+.plan h3{
+  margin:0;
+  color:#00ff66;
+}
 
-    .hero {
-      text-align: center;
-      padding: 70px 20px 50px;
-      background: linear-gradient(180deg, #07130c, #050505);
-    }
+.price{
+  font-size:32px;
+  font-weight:bold;
+  color:gold;
+  margin:10px 0;
+}
 
-    .hero h1 {
-      font-size: 40px;
-      margin-bottom: 12px;
-    }
+.payment{
+  background:#111;
+  border:1px solid #00ff66;
+  border-radius:15px;
+  padding:20px;
+  margin-top:20px;
+}
 
-    .hero h1 span {
-      color: #39ff88;
-    }
+.wallet{
+  background:#000;
+  color:#00ff66;
+  padding:10px;
+  border-radius:8px;
+  word-break:break-all;
+}
 
-    .hero p {
-      color: #aaa;
-      max-width: 650px;
-      margin: auto;
-    }
+.whatsapp{
+  display:block;
+  text-align:center;
+  background:#00ff66;
+  color:black;
+  padding:15px;
+  margin-top:25px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+}
+</style>
+</head>
 
-    .section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 50px 6%;
-    }
+<body>
 
-    .title {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+<div class="container">
 
-    .title h2 {
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
+<h1>Market Edge Premium Plans</h1>
 
-    .title p {
-      color: #999;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .product {
-      background: #0c0c0c;
-      border: 1px solid #222;
-      border-radius: 14px;
-      padding: 25px;
-    }
-
-    .product h3 {
-      color: #39ff88;
-      margin-bottom: 8px;
-    }
-
-    .price {
-      font-size: 28px;
-      font-weight: bold;
-      margin: 12px 0;
-    }
-
-    .product p {
-      color: #aaa;
-      font-size: 14px;
-    }
-
-    .methods {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .method {
-      background: #0b0b0b;
-      border: 1px solid #202020;
-      border-radius: 12px;
-      padding: 22px;
-    }
-
-    .method h3 {
-      color: #39ff88;
-      margin-bottom: 8px;
-    }
-
-    .method p {
-      color: #aaa;
-      font-size: 14px;
-    }
-
-    .placeholder {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 8px 12px;
-      border-radius: 6px;
-      background: #151515;
-      color: #888;
-      font-size: 12px;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .step {
-      background: #0b0b0b;
-      border: 1px solid #202020;
-      border-radius: 12px;
-      padding: 22px;
-    }
-
-    .number {
-      color: #39ff88;
-      font-size: 25px;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
-
-    .step h3 {
-      margin-bottom: 6px;
-    }
-
-    .step p {
-      color: #aaa;
-      font-size: 14px;
-    }
-
-    .notice {
-      background: #09130d;
-      border: 1px solid #193421;
-      border-radius: 12px;
-      padding: 22px;
-      color: #aaa;
-      font-size: 14px;
-      margin-top: 30px;
-    }
-
-    .cta {
-      text-align: center;
-      padding: 50px 20px;
-      background: #080808;
-      border-top: 1px solid #202020;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 18px;
-      background: #39ff88;
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 13px 28px;
-      border-radius: 8px;
-    }
-
-    .disclaimer {
-      text-align: center;
-      color: #777;
-      font-size: 12px;
-      padding: 25px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    footer {
-      text-align: center;
-      border-top: 1px solid #1b1b1b;
-      padding: 25px;
-      color: #666;
-      font-size: 13px;
-    }
-
-    @media (max-width: 750px) {
-      .products,
-      .methods,
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 32px;
-      }
-
-      nav a {
-        margin-left: 8px;
-        font-size: 12px;
-      }
-    }
-  </style></head><body><header>
-  <div class="logo">MARKET EDGE</div>  <nav>
-    <a href="index.html">Home</a>
-    <a href="signals.html">Signals</a>
-    <a href="bots.html">Bots</a>
-  </nav>
-</header><section class="hero">
-  <h1>Secure <span>Payments</span></h1>
-  <p>
-    Choose your Market Edge product and select a payment method that works for you.
-  </p>
-</section><section class="section">  <div class="title">
-    <h2>Select Your Product</h2>
-    <p>Prices will be updated when the final packages are ready.</p>
-  </div>  <div class="products"><div class="product">
-  <h3>Trading Signals</h3>
-  <p>Access structured trading signals with entry, stop-loss and take-profit information.</p>
-  <div class="price">$XX</div>
+<div class="plan">
+  <h3>Starter Signals</h3>
+  <div class="price">$30</div>
+  <p>7 Days VIP Forex Signals.</p>
 </div>
 
-<div class="product">
-  <h3>Trading Bots</h3>
-  <p>Automated trading systems with setup instructions and configuration support.</p>
-  <div class="price">$XX</div>
+<div class="plan">
+  <h3>Pro Signals</h3>
+  <div class="price">$75</div>
+  <p>30 Days VIP Signals + Daily Market Analysis.</p>
 </div>
 
-  </div></section><section class="section">  <div class="title">
-    <h2>Payment Methods</h2>
-    <p>Multiple payment options will be available.</p>
-  </div>  <div class="methods"><div class="method">
-  <h3>📱 Mobile Money</h3>
-  <p>MTN Mobile Money and Airtel Money.</p>
-  <span class="placeholder">Details coming soon</span>
+<div class="plan">
+  <h3>Trading Bot Basic</h3>
+  <div class="price">$150</div>
+  <p>Lifetime Forex Trading Bot.</p>
 </div>
 
-<div class="method">
-  <h3>🏦 Bank Transfer</h3>
-  <p>Pay directly through supported bank transfer options.</p>
-  <span class="placeholder">Bank details coming soon</span>
+<div class="plan">
+  <h3>Trading Bot Premium</h3>
+  <div class="price">$250</div>
+  <p>AI Trading Bot + Lifetime Updates.</p>
 </div>
 
-<div class="method">
-  <h3>💳 Card Payment</h3>
-  <p>Visa and Mastercard payment options.</p>
-  <span class="placeholder">Payment gateway coming soon</span>
+<div class="plan">
+  <h3>VIP Bundle</h3>
+  <div class="price">$300</div>
+  <p>Premium Bot + VIP Signals + Priority Support.</p>
 </div>
 
-<div class="method">
-  <h3>🌍 International Payment</h3>
-  <p>International customers will have access to supported payment services.</p>
-  <span class="placeholder">Gateway coming soon</span>
+<h2>Payment Methods</h2>
+
+<div class="payment">
+  <h3>📱 Airtel Money</h3>
+  <p><strong>0731264482</strong></p>
+
+  <h3>🏦 Centenary Bank</h3>
+  <p><strong>Account:</strong> 3204942758</p>
+
+  <h3>🪙 USDT (TRC20)</h3>
+  <p>Network: TRON (TRC20)</p>
+  <div class="wallet">TCm4D4LsYm2x8nC1KDGkhiwBeUodVRj41p</div>
+
+  <p><strong>After payment:</strong> Send your payment screenshot, full name, email, and Telegram username for approval.</p>
+
+  <a class="whatsapp"
+     href="https://wa.me/256731264482?text=Hello%20Market%20Edge,%20I%20have%20made%20payment.%20Here%20is%20my%20payment%20screenshot.">
+     Send Payment Screenshot
+  </a>
 </div>
 
-<div class="method">
-  <h3>₿ Crypto</h3>
-  <p>Cryptocurrency payment option where supported.</p>
-  <span class="placeholder">Wallet details coming soon</span>
 </div>
 
-  </div></section><section class="section">  <div class="title">
-    <h2>How Payment Works</h2>
-  </div>  <div class="steps"><div class="step">
-  <div class="number">01</div>
-  <h3>Choose</h3>
-  <p>Select the product or service you want to purchase.</p>
-</div>
-
-<div class="step">
-  <div class="number">02</div>
-  <h3>Pay</h3>
-  <p>Choose an available payment method and complete the payment.</p>
-</div>
-
-<div class="step">
-  <div class="number">03</div>
-  <h3>Receive Access</h3>
-  <p>After payment confirmation, receive the relevant product or access instructions.</p>
-</div>
-
-  </div>  <div class="notice">
-    <strong>Important:</strong> Always confirm the product, price and payment details
-    before completing a transaction. Market Edge will never guarantee profits.
-  </div></section><section class="cta">
-  <h2>Need Help?</h2>
-  <p>Contact Market Edge if you have questions about a purchase.</p>
-  <a href="index.html" class="btn">Back to Market Edge</a>
-</section><div class="disclaimer">
-  Market Edge provides trading-related educational material, signals and automated
-  trading tools. Trading financial markets involves significant risk and losses are
-  possible. No profit or performance guarantees are made.
-</div><footer>
-  © 2026 Market Edge. Trade. Learn. Evolve.
-</footer></body>
+</body>
 </html>
