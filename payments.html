@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!DOCTYPE html>
-<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Market Edge | Payments</title>
+<title>Market Edge | Payment</title>
 
 <style>
 *{
@@ -14,415 +12,290 @@
   margin:0;
   padding:0;
 }
-<section class="proof" id="proof">
-  <div class="container">
-    <h2>Submit Payment Proof</h2>
-    <p>
-      After making your payment, send your payment details and screenshot
-      to Market Edge on WhatsApp for verification.
-    </p>
 
-    <div class="proof-box">
-      <label>Choose Product</label>
-      <select id="product">
-        <option>Signals Basic — $10/month</option>
-        <option>Signals Pro — $25/month</option>
-        <option>Signals Elite — $50/month</option>
-        <option>Bot Starter — $30</option>
-        <option>Bot Pro — $75</option>
-        <option>Bot Elite — $150</option>
-      </select>
-
-      <label>Your Name</label>
-      <input type="text" id="name" placeholder="Enter your name">
-
-      <label>Transaction ID / Reference</label>
-      <input type="text" id="transaction" placeholder="Enter transaction ID">
-
-      <button onclick="sendProof()">Send Proof on WhatsApp</button>
-
-      <p class="note">
-        📎 After WhatsApp opens, attach your payment screenshot before sending.
-      </p>
-    </div>
-  </div>
-</section>
-
-<script>
-function sendProof() {
-  const product = document.getElementById("product").value;
-  const name = document.getElementById("name").value;
-  const transaction = document.getElementById("transaction").value;
-
-  if (!name || !transaction) {
-    alert("Please enter your name and transaction ID.");
-    return;
-  }
-
-  const message =
-    "Hello Market Edge 👋%0A%0A" +
-    "I have made a payment.%0A" +
-    "Product: " + encodeURIComponent(product) + "%0A" +
-    "Name: " + encodeURIComponent(name) + "%0A" +
-    "Transaction ID: " + encodeURIComponent(transaction) + "%0A%0A" +
-    "I have attached my payment screenshot for verification.";
-
-  window.open(
-    "https://wa.me/256765560729?text=" + message,
-    "_blank"
-  );
-}
-</script>
 body{
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:Arial, sans-serif;
   background:#050505;
   color:#fff;
   line-height:1.6;
 }
 
 header{
-  background:#080808;
-  border-bottom:1px solid #202020;
-  padding:18px 6%;
+  border-bottom:1px solid #222;
+  padding:18px 20px;
+}
+
+.nav{
+  max-width:1100px;
+  margin:auto;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  position:sticky;
-  top:0;
-  z-index:100;
 }
 
 .logo{
-  color:#39ff88;
-  font-size:21px;
+  color:#19ff75;
+  font-size:24px;
   font-weight:800;
   letter-spacing:1px;
 }
 
 nav a{
-  color:#ccc;
+  color:#aaa;
   text-decoration:none;
-  margin-left:16px;
-  font-size:13px;
+  margin-left:18px;
+  font-size:14px;
 }
 
 nav a:hover{
-  color:#39ff88;
+  color:#19ff75;
+}
+
+.container{
+  width:92%;
+  max-width:900px;
+  margin:auto;
 }
 
 .hero{
   text-align:center;
-  padding:70px 20px 55px;
-  background:
-    radial-gradient(circle at top,#123b25 0%,#07130c 25%,#050505 65%);
-}
-
-.badge{
-  display:inline-block;
-  padding:7px 14px;
-  border:1px solid #245d3b;
-  border-radius:30px;
-  color:#39ff88;
-  font-size:12px;
-  margin-bottom:18px;
+  padding:55px 0 35px;
 }
 
 .hero h1{
   font-size:42px;
-  margin-bottom:12px;
+  line-height:1.1;
+  margin-bottom:15px;
 }
 
 .hero h1 span{
-  color:#39ff88;
+  color:#19ff75;
 }
 
 .hero p{
-  color:#999;
-  max-width:650px;
-  margin:auto;
+  color:#aaa;
+  font-size:17px;
 }
 
-.section{
-  max-width:1100px;
-  margin:auto;
-  padding:55px 6%;
+.selected{
+  border:1px solid #19ff75;
+  background:linear-gradient(145deg,#07150d,#0b0b0b);
+  border-radius:18px;
+  padding:25px;
+  margin:20px 0 35px;
+  box-shadow:0 0 25px rgba(25,255,117,.08);
 }
 
-.title{
-  text-align:center;
-  margin-bottom:30px;
-}
-
-.title h2{
-  font-size:29px;
+.selected-label{
+  color:#19ff75;
+  font-size:13px;
+  font-weight:bold;
+  text-transform:uppercase;
   margin-bottom:8px;
 }
 
-.title p{
-  color:#888;
-}
-
-.products{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
+.product-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   gap:20px;
 }
 
-.product{
-  background:linear-gradient(145deg,#101010,#090909);
-  border:1px solid #222;
-  border-radius:18px;
-  padding:28px;
+.product-name{
+  font-size:28px;
+  font-weight:800;
 }
 
-.product:hover{
-  border-color:#39ff88;
-}
-
-.product h3{
-  color:#39ff88;
-  font-size:21px;
-}
-
-.product p{
+.product-description{
   color:#999;
-  font-size:14px;
   margin-top:5px;
 }
 
 .price{
-  font-size:30px;
-  font-weight:bold;
-  margin-top:14px;
+  color:#19ff75;
+  font-size:38px;
+  font-weight:800;
+  white-space:nowrap;
 }
 
 .price small{
-  color:#777;
-  font-size:12px;
+  color:#aaa;
+  font-size:13px;
   font-weight:normal;
+}
+
+.section-title{
+  font-size:25px;
+  margin-bottom:8px;
+}
+
+.section-sub{
+  color:#888;
+  margin-bottom:20px;
 }
 
 .methods{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:18px;
+  gap:15px;
 }
 
 .method{
-  background:linear-gradient(145deg,#111,#080808);
-  border:1px solid #242424;
-  border-radius:18px;
-  padding:25px;
-  position:relative;
-  overflow:hidden;
-}
-
-.method:hover{
-  border-color:#39ff88;
-  transform:translateY(-3px);
-}
-
-.icon{
-  width:48px;
-  height:48px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:12px;
-  background:#122519;
-  font-size:22px;
-  margin-bottom:17px;
+  border:1px solid #292929;
+  border-radius:16px;
+  padding:20px;
+  background:#0b0b0b;
 }
 
 .method h3{
-  color:#fff;
-  margin-bottom:6px;
+  color:#19ff75;
+  margin-bottom:10px;
 }
 
-.method > p{
-  color:#888;
-  font-size:13px;
-}
-
-.details{
-  margin-top:18px;
-}
-
-.detail{
-  background:#161616;
-  border:1px solid #242424;
-  border-radius:9px;
-  padding:11px;
-  margin-top:9px;
-}
-
-.label{
-  display:block;
-  color:#777;
-  font-size:11px;
-  margin-bottom:2px;
-}
-
-.value{
-  color:#eee;
+.method p{
+  color:#aaa;
   font-size:14px;
-  word-break:break-all;
+  margin:5px 0;
+  word-break:break-word;
 }
 
-.copy-btn{
-  width:100%;
+.copy{
   margin-top:10px;
-  border:none;
-  background:#39ff88;
+  background:#19ff75;
   color:#000;
-  padding:10px;
+  border:none;
+  padding:9px 14px;
   border-radius:8px;
   font-weight:bold;
   cursor:pointer;
 }
 
-.copy-btn:hover{
-  background:#25d96c;
-}
-
-.warning{
-  margin-top:14px;
-  padding:10px;
-  border-radius:8px;
-  background:#211c0b;
-  border:1px solid #51471b;
-  color:#d7c978;
-  font-size:11px;
-}
-
 .steps{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
+  margin:35px 0;
+  border:1px solid #222;
+  border-radius:16px;
+  padding:22px;
+  background:#0a0a0a;
 }
 
 .step{
-  background:#0d0d0d;
-  border:1px solid #202020;
-  border-radius:14px;
-  padding:22px;
+  display:flex;
+  gap:15px;
+  margin:15px 0;
 }
 
 .number{
-  color:#39ff88;
-  font-size:22px;
+  min-width:32px;
+  height:32px;
+  border-radius:50%;
+  background:#19ff75;
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   font-weight:bold;
-  margin-bottom:8px;
-}
-
-.step h3{
-  font-size:16px;
-  margin-bottom:5px;
 }
 
 .step p{
-  color:#888;
-  font-size:13px;
+  color:#aaa;
 }
 
-.notice{
-  margin-top:28px;
-  padding:18px;
-  border-radius:12px;
-  background:#09150e;
-  border:1px solid #1b3a27;
-  color:#999;
-  font-size:13px;
+.whatsapp{
+  display:block;
   text-align:center;
-}
-
-.cta{
-  text-align:center;
-  padding:55px 20px;
-  background:linear-gradient(180deg,#09130d,#070707);
-  border-top:1px solid #18281e;
-}
-
-.cta h2{
-  font-size:28px;
-  margin-bottom:8px;
-}
-
-.cta p{
-  color:#888;
-}
-
-.btn{
-  display:inline-block;
-  margin-top:20px;
-  background:#39ff88;
-  color:#000;
   text-decoration:none;
-  font-weight:bold;
-  padding:13px 28px;
-  border-radius:9px;
+  background:#19ff75;
+  color:#000;
+  padding:16px;
+  border-radius:12px;
+  font-weight:800;
+  font-size:17px;
+  margin:25px 0;
 }
 
-.disclaimer{
-  max-width:900px;
-  margin:auto;
-  padding:28px 20px;
+.whatsapp:hover{
+  opacity:.9;
+}
+
+.note{
+  color:#888;
+  font-size:13px;
   text-align:center;
-  color:#666;
-  font-size:11px;
+  margin-bottom:35px;
 }
 
 footer{
-  border-top:1px solid #1c1c1c;
+  border-top:1px solid #222;
   text-align:center;
   padding:25px;
-  color:#555;
-  font-size:12px;
+  color:#666;
+  font-size:13px;
 }
 
-@media(max-width:850px){
+/* MOBILE */
+@media(max-width:700px){
+
+  header{
+    padding:16px;
+  }
+
+  .nav{
+    align-items:center;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  nav a{
+    margin-left:10px;
+    font-size:12px;
+  }
+
+  .hero{
+    padding:40px 0 25px;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .selected{
+    padding:20px;
+  }
+
+  .product-row{
+    display:block;
+  }
+
+  .product-name{
+    font-size:24px;
+  }
+
+  .price{
+    margin-top:15px;
+    font-size:34px;
+  }
 
   .methods{
     grid-template-columns:1fr;
   }
 
-  .steps{
-    grid-template-columns:1fr 1fr;
+  .method{
+    padding:18px;
   }
 
-}
-
-@media(max-width:600px){
-
-  header{
-    padding:15px 5%;
+  .section-title{
+    font-size:23px;
   }
 
-  nav a{
-    margin-left:8px;
-    font-size:11px;
+  .whatsapp{
+    font-size:16px;
   }
-
-  .hero{
-    padding:55px 18px 45px;
-  }
-
-  .hero h1{
-    font-size:34px;
-  }
-
-  .products{
-    grid-template-columns:1fr;
-  }
-
-  .steps{
-    grid-template-columns:1fr;
-  }
-
-  .section{
-    padding:45px 5%;
-  }
-
 }
 </style>
 </head>
@@ -430,445 +303,324 @@ footer{
 <body>
 
 <header>
+  <div class="nav">
 
-  <div class="logo">MARKET EDGE</div>
+    <div class="logo">
+      MARKET EDGE
+    </div>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="signals.html">Signals</a>
-    <a href="bots.html">Bots</a>
-  </nav>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="signals.html">Signals</a>
+      <a href="bots.html">Bots</a>
+    </nav>
 
+  </div>
 </header>
 
 
-<section class="hero">
+<main class="container">
 
-  <div class="badge">🔒 MARKET EDGE PAYMENTS</div>
+  <section class="hero">
 
-  <h1>Secure <span>Payments</span></h1>
+    <h1>
+      Complete Your <span>Payment</span>
+    </h1>
 
-  <p>
-    Choose your product, select your preferred payment method,
-    and complete your order securely.
+    <p>
+      Your selected product is shown below.
+      Make your payment and send the proof on WhatsApp.
+    </p>
+
+  </section>
+
+
+  <!-- SELECTED PRODUCT -->
+
+  <section class="selected">
+
+    <div class="selected-label">
+      ✓ Selected Product
+    </div>
+
+    <div class="product-row">
+
+      <div>
+        <div class="product-name" id="productName">
+          Edge Starter
+        </div>
+
+        <div class="product-description" id="productDescription">
+          Automated trading bot with essential features.
+        </div>
+      </div>
+
+      <div class="price">
+        $<span id="productPrice">30</span>
+        <small>one-time</small>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PAYMENT METHODS -->
+
+  <section>
+
+    <h2 class="section-title">
+      Payment Method
+    </h2>
+
+    <p class="section-sub">
+      Send the exact amount using any of the methods below.
+    </p>
+
+
+    <div class="methods">
+
+
+      <!-- AIRTEL -->
+
+      <div class="method">
+
+        <h3>📱 Airtel Money</h3>
+
+        <p>
+          <strong>Number:</strong><br>
+          0731264482
+        </p>
+
+        <p>
+          <strong>Name:</strong><br>
+          Okiring Jovan
+        </p>
+
+        <button class="copy"
+          onclick="copyText('0731264482', this)">
+          Copy Number
+        </button>
+
+      </div>
+
+
+      <!-- BANK -->
+
+      <div class="method">
+
+        <h3>🏦 Centenary Bank</h3>
+
+        <p>
+          <strong>Account:</strong><br>
+          3204942758
+        </p>
+
+        <p>
+          <strong>Name:</strong><br>
+          Okiring Jovan
+        </p>
+
+        <button class="copy"
+          onclick="copyText('3204942758', this)">
+          Copy Account
+        </button>
+
+      </div>
+
+
+      <!-- TRON -->
+
+      <div class="method">
+
+        <h3>₮ TRON TRC20</h3>
+
+        <p>
+          <strong>Wallet:</strong><br>
+          TCm4D4LsYm2x8nC1KDGkhiwBeUodVRj41p
+        </p>
+
+        <button class="copy"
+          onclick="copyText('TCm4D4LsYm2x8nC1KDGkhiwBeUodVRj41p', this)">
+          Copy Wallet
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- STEPS -->
+
+  <section class="steps">
+
+    <h2 class="section-title">
+      After Payment
+    </h2>
+
+    <div class="step">
+      <div class="number">1</div>
+      <p>Complete your payment using one of the methods above.</p>
+    </div>
+
+    <div class="step">
+      <div class="number">2</div>
+      <p>Take a screenshot of your payment confirmation.</p>
+    </div>
+
+    <div class="step">
+      <div class="number">3</div>
+      <p>Click the WhatsApp button below and send your screenshot.</p>
+    </div>
+
+    <div class="step">
+      <div class="number">4</div>
+      <p>Include your name and transaction/reference number.</p>
+    </div>
+
+  </section>
+
+
+  <!-- WHATSAPP -->
+
+  <a
+    class="whatsapp"
+    id="whatsappButton"
+    href="#"
+    target="_blank">
+
+    💬 Submit Payment Proof on WhatsApp
+
+  </a>
+
+  <p class="note">
+    Payment access is provided after the payment has been manually verified.
   </p>
 
-</section>
 
+</main>
 
-<section class="section">
 
-  <div class="title">
-    <h2>Choose Your Product</h2>
-    <p>Select the service you want to purchase.</p>
-  </div>
+<footer>
+  © 2026 Market Edge • Trade. Learn. Evolve.
+</footer>
 
-  <div class="products">
 
-    <div class="product">
+<script>
 
-      <h3>📊 Trading Signals</h3>
+const products = {
 
-      <p>
-        Structured trading signals with entry,
-        stop-loss and take-profit information.
-      </p>
+  "Edge Starter": {
+    price: "30",
+    description:
+      "Automated trading bot with essential features."
+  },
 
-      <div class="price">
-        $10 <small>/ month starting price</small>
-      </div>
+  "Edge Pro": {
+    price: "75",
+    description:
+      "Advanced trading bot with additional configuration and risk-management features."
+  },
 
-    </div>
+  "Edge Elite": {
+    price: "150",
+    description:
+      "Premium automated trading bot with advanced configuration and support."
+  },
 
+  "Signals Basic": {
+    price: "10",
+    description:
+      "Structured trading signals with entry, stop-loss and take-profit information."
+  },
 
-    <div class="product">
+  "Signals Pro": {
+    price: "25",
+    description:
+      "Advanced trading signals with additional market analysis."
+  },
 
-      <h3>🤖 Trading Bots</h3>
+  "Signals Elite": {
+    price: "50",
+    description:
+      "Premium trading signals and market analysis."
+  }
 
-      <p>
-        Rule-based automated trading systems
-        with setup and configuration guidance.
-      </p>
+};
 
-      <div class="price">
-        $30 <small>/ starting price</small>
-      </div>
 
-    </div>
+function loadProduct(){
 
-  </div>
+  const params =
+    new URLSearchParams(window.location.search);
 
-</section>
+  const selected =
+    params.get("product");
 
+  if(selected && products[selected]){
 
-<section class="section">
+    document.getElementById("productName")
+      .textContent = selected;
 
-  <div class="title">
+    document.getElementById("productPrice")
+      .textContent = products[selected].price;
 
-    <h2>Choose Payment Method</h2>
+    document.getElementById("productDescription")
+      .textContent = products[selected].description;
 
-    <p>
-      Select the option that is most convenient for you.
-    </p>
+  }
 
-  </div>
+  updateWhatsApp();
 
-
-  <div class="methods">
-
-
-    <!-- AIRTEL MONEY -->
-
-    <div class="method">
-
-      <div class="icon">📱</div>
-
-      <h3>Airtel Money</h3>
-
-      <p>
-        Uganda Mobile Money
-      </p>
-
-      <div class="details">
-
-        <div class="detail">
-
-          <span class="label">
-            Mobile Number
-          </span>
-
-          <span class="value">
-            0731264482
-          </span>
-
-        </div>
-
-
-        <div class="detail">
-
-          <span class="label">
-            Account Name
-          </span>
-
-          <span class="value">
-            Okiring Jovan
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <button
-        class="copy-btn"
-        onclick="copyText('0731264482', this)">
-        Copy Number
-      </button>
-
-    </div>
-
-
-
-    <!-- BANK -->
-
-    <div class="method">
-
-      <div class="icon">🏦</div>
-
-      <h3>Centenary Bank</h3>
-
-      <p>
-        Bank transfer
-      </p>
-
-      <div class="details">
-
-        <div class="detail">
-
-          <span class="label">
-            Account Name
-          </span>
-
-          <span class="value">
-            Okiring Jovan
-          </span>
-
-        </div>
-
-
-        <div class="detail">
-
-          <span class="label">
-            Account Number
-          </span>
-
-          <span class="value">
-            3204942758
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <button
-        class="copy-btn"
-        onclick="copyText('3204942758', this)">
-        Copy Account Number
-      </button>
-
-    </div>
-
-
-
-    <!-- TRON -->
-
-    <div class="method">
-
-      <div class="icon">₿</div>
-
-      <h3>TRON — TRC20</h3>
-
-      <p>
-        Cryptocurrency payment
-      </p>
-
-      <div class="details">
-
-        <div class="detail">
-
-          <span class="label">
-            TRC20 Wallet Address
-          </span>
-
-          <span class="value">
-            TCm4D4LsYm2x8nC1KDGkhiwBeUodVRj41p
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <button
-        class="copy-btn"
-        onclick="copyText('TCm4D4LsYm2x8nC1KDGkhiwBeUodVRj41p', this)">
-        Copy Wallet Address
-      </button>
-
-
-      <div class="warning">
-
-        ⚠️ <strong>Important:</strong>
-        Make sure you select the
-        <strong>TRC20 network</strong>
-        before sending.
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="section">
-
-  <div class="title">
-
-    <h2>How To Complete Your Order</h2>
-
-    <p>
-      Follow these simple steps.
-    </p>
-
-  </div>
-
-
-  <div class="steps">
-
-    <div class="step">
-
-      <div class="number">01</div>
-
-      <h3>Choose</h3>
-
-      <p>
-        Select the product you want.
-      </p>
-
-    </div>
-
-
-    <div class="step">
-
-      <div class="number">02</div>
-
-      <h3>Pay</h3>
-
-      <p>
-        Send the exact amount using your preferred method.
-      </p>
-
-    </div>
-
-
-    <div class="step">
-
-      <div class="number">03</div>
-
-      <h3>Confirm</h3>
-
-      <p>
-        Keep your transaction reference or receipt.
-      </p>
-
-    </div>
-
-
-    <div class="step">
-
-      <div class="number">04</div>
-
-      <h3>Receive Access</h3>
-
-      <p>
-        After payment confirmation, receive your purchased service.
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <div class="notice">
-
-    🔐 Always
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Market Edge | Pricing & Payments</title>
-
-<style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#050505;
-  color:white;
 }
 
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:20px;
+
+function updateWhatsApp(){
+
+  const product =
+    document.getElementById("productName").textContent;
+
+  const price =
+    document.getElementById("productPrice").textContent;
+
+  const message =
+    "Hello Market Edge 👋%0A%0A" +
+    "I have made a payment.%0A" +
+    "Product: " + encodeURIComponent(product) + "%0A" +
+    "Amount: $" + price + "%0A%0A" +
+    "I have attached my payment screenshot for verification.";
+
+  document.getElementById("whatsappButton").href =
+    "https://wa.me/256765560729?text=" + message;
+
 }
 
-h1,h2{
-  text-align:center;
-  color:#00ff66;
+
+function copyText(text, button){
+
+  navigator.clipboard.writeText(text);
+
+  const original =
+    button.textContent;
+
+  button.textContent =
+    "Copied ✓";
+
+  setTimeout(function(){
+
+    button.textContent =
+      original;
+
+  },1500);
+
 }
 
-.plan{
-  background:#111;
-  border:1px solid #00ff66;
-  border-radius:15px;
-  padding:20px;
-  margin:15px 0;
-  box-shadow:0 0 10px rgba(0,255,102,.3);
-}
 
-.plan h3{
-  margin:0;
-  color:#00ff66;
-}
+loadProduct();
 
-.price{
-  font-size:32px;
-  font-weight:bold;
-  color:gold;
-  margin:10px 0;
-}
+</script>
 
-.payment{
-  background:#111;
-  border:1px solid #00ff66;
-  border-radius:15px;
-  padding:20px;
-  margin-top:20px;
-}
-
-.wallet{
-  background:#000;
-  color:#00ff66;
-  padding:10px;
-  border-radius:8px;
-  word-break:break-all;
-}
-
-.whatsapp{
-  display:block;
-  text-align:center;
-  background:#00ff66;
-  color:black;
-  padding:15px;
-  margin-top:25px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:bold;
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-<h1>Market Edge Premium Plans</h1>
-
-<div class="plan">
-  <h3>Starter Signals</h3>
-  <div class="price">$30</div>
-  <p>7 Days VIP Forex Signals.</p>
-</div>
-
-<div class="plan">
-  <h3>Pro Signals</h3>
-  <div class="price">$75</div>
-  <p>30 Days VIP Signals + Daily Market Analysis.</p>
-</div>
-
-<div class="plan">
-  <h3>Trading Bot Basic</h3>
-  <div class="price">$150</div>
-  <p>Lifetime Forex Trading Bot.</p>
-</div>
-
-<div class="plan">
-  <h3>Trading Bot Premium</h3>
-  <div class="price">$250</div>
-  <p>AI Trading Bot + Lifetime Updates.</p>
-</div>
-
-<div class="plan">
-  <h3>VIP Bundle</h3>
-  <div class="price">$300</div>
-  <p>Premium Bot + VIP Signals + Priority Support.</p>
-</div>
-
-<h2>Payment Methods</h2>
-
-<div class="payment">
-  <h3>📱 Airtel Money</h3>
-  <p><strong>256731264482</strong></p>
-
-  <h3>🏦 Centenary Bank</h3>
-  <p><strong>Account:</strong> 3204942758</p>
-
-  <h3>🪙 USDT (TRC20)</h3>
-  <p>Network: TRON (TRC20)</p>
-  <div class="wallet">TCm4D4LsYm2x8nC1KDGkhiwBeUodVRj41p</div>
-
-  <p><strong>After payment:</strong> Send your payment screenshot, full name, email, and Telegram username for approval.</p>
-
-  <a class="whatsapp"
-     href="https://wa.me/256731264482?text=Hello%20Market%20Edge,%20I%20have%20made%20payment.%20Here%20is%20my
+</body>
+</html>
