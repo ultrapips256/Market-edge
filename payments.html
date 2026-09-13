@@ -1,6 +1,692 @@
 <!DOCTYPE html>
 <html lang="en">
+<head><!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Market Edge | Payments</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#050505;
+  color:#fff;
+  line-height:1.6;
+}
+
+header{
+  background:#080808;
+  border-bottom:1px solid #202020;
+  padding:18px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  color:#39ff88;
+  font-size:21px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+nav a{
+  color:#ccc;
+  text-decoration:none;
+  margin-left:16px;
+  font-size:13px;
+}
+
+nav a:hover{
+  color:#39ff88;
+}
+
+.hero{
+  text-align:center;
+  padding:70px 20px 55px;
+  background:
+    radial-gradient(circle at top,#123b25 0%,#07130c 25%,#050505 65%);
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 14px;
+  border:1px solid #245d3b;
+  border-radius:30px;
+  color:#39ff88;
+  font-size:12px;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:42px;
+  margin-bottom:12px;
+}
+
+.hero h1 span{
+  color:#39ff88;
+}
+
+.hero p{
+  color:#999;
+  max-width:650px;
+  margin:auto;
+}
+
+.section{
+  max-width:1100px;
+  margin:auto;
+  padding:55px 6%;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.title h2{
+  font-size:29px;
+  margin-bottom:8px;
+}
+
+.title p{
+  color:#888;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.product{
+  background:linear-gradient(145deg,#101010,#090909);
+  border:1px solid #222;
+  border-radius:18px;
+  padding:28px;
+}
+
+.product:hover{
+  border-color:#39ff88;
+}
+
+.product h3{
+  color:#39ff88;
+  font-size:21px;
+}
+
+.product p{
+  color:#999;
+  font-size:14px;
+  margin-top:5px;
+}
+
+.price{
+  font-size:30px;
+  font-weight:bold;
+  margin-top:14px;
+}
+
+.price small{
+  color:#777;
+  font-size:12px;
+  font-weight:normal;
+}
+
+.methods{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.method{
+  background:linear-gradient(145deg,#111,#080808);
+  border:1px solid #242424;
+  border-radius:18px;
+  padding:25px;
+  position:relative;
+  overflow:hidden;
+}
+
+.method:hover{
+  border-color:#39ff88;
+  transform:translateY(-3px);
+}
+
+.icon{
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  background:#122519;
+  font-size:22px;
+  margin-bottom:17px;
+}
+
+.method h3{
+  color:#fff;
+  margin-bottom:6px;
+}
+
+.method > p{
+  color:#888;
+  font-size:13px;
+}
+
+.details{
+  margin-top:18px;
+}
+
+.detail{
+  background:#161616;
+  border:1px solid #242424;
+  border-radius:9px;
+  padding:11px;
+  margin-top:9px;
+}
+
+.label{
+  display:block;
+  color:#777;
+  font-size:11px;
+  margin-bottom:2px;
+}
+
+.value{
+  color:#eee;
+  font-size:14px;
+  word-break:break-all;
+}
+
+.copy-btn{
+  width:100%;
+  margin-top:10px;
+  border:none;
+  background:#39ff88;
+  color:#000;
+  padding:10px;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.copy-btn:hover{
+  background:#25d96c;
+}
+
+.warning{
+  margin-top:14px;
+  padding:10px;
+  border-radius:8px;
+  background:#211c0b;
+  border:1px solid #51471b;
+  color:#d7c978;
+  font-size:11px;
+}
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.step{
+  background:#0d0d0d;
+  border:1px solid #202020;
+  border-radius:14px;
+  padding:22px;
+}
+
+.number{
+  color:#39ff88;
+  font-size:22px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.step h3{
+  font-size:16px;
+  margin-bottom:5px;
+}
+
+.step p{
+  color:#888;
+  font-size:13px;
+}
+
+.notice{
+  margin-top:28px;
+  padding:18px;
+  border-radius:12px;
+  background:#09150e;
+  border:1px solid #1b3a27;
+  color:#999;
+  font-size:13px;
+  text-align:center;
+}
+
+.cta{
+  text-align:center;
+  padding:55px 20px;
+  background:linear-gradient(180deg,#09130d,#070707);
+  border-top:1px solid #18281e;
+}
+
+.cta h2{
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+.cta p{
+  color:#888;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  background:#39ff88;
+  color:#000;
+  text-decoration:none;
+  font-weight:bold;
+  padding:13px 28px;
+  border-radius:9px;
+}
+
+.disclaimer{
+  max-width:900px;
+  margin:auto;
+  padding:28px 20px;
+  text-align:center;
+  color:#666;
+  font-size:11px;
+}
+
+footer{
+  border-top:1px solid #1c1c1c;
+  text-align:center;
+  padding:25px;
+  color:#555;
+  font-size:12px;
+}
+
+@media(max-width:850px){
+
+  .methods{
+    grid-template-columns:1fr;
+  }
+
+  .steps{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+@media(max-width:600px){
+
+  header{
+    padding:15px 5%;
+  }
+
+  nav a{
+    margin-left:8px;
+    font-size:11px;
+  }
+
+  .hero{
+    padding:55px 18px 45px;
+  }
+
+  .hero h1{
+    font-size:34px;
+  }
+
+  .products{
+    grid-template-columns:1fr;
+  }
+
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+  .section{
+    padding:45px 5%;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">MARKET EDGE</div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="signals.html">Signals</a>
+    <a href="bots.html">Bots</a>
+  </nav>
+
+</header>
+
+
+<section class="hero">
+
+  <div class="badge">🔒 MARKET EDGE PAYMENTS</div>
+
+  <h1>Secure <span>Payments</span></h1>
+
+  <p>
+    Choose your product, select your preferred payment method,
+    and complete your order securely.
+  </p>
+
+</section>
+
+
+<section class="section">
+
+  <div class="title">
+    <h2>Choose Your Product</h2>
+    <p>Select the service you want to purchase.</p>
+  </div>
+
+  <div class="products">
+
+    <div class="product">
+
+      <h3>📊 Trading Signals</h3>
+
+      <p>
+        Structured trading signals with entry,
+        stop-loss and take-profit information.
+      </p>
+
+      <div class="price">
+        $10 <small>/ month starting price</small>
+      </div>
+
+    </div>
+
+
+    <div class="product">
+
+      <h3>🤖 Trading Bots</h3>
+
+      <p>
+        Rule-based automated trading systems
+        with setup and configuration guidance.
+      </p>
+
+      <div class="price">
+        $30 <small>/ starting price</small>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="title">
+
+    <h2>Choose Payment Method</h2>
+
+    <p>
+      Select the option that is most convenient for you.
+    </p>
+
+  </div>
+
+
+  <div class="methods">
+
+
+    <!-- AIRTEL MONEY -->
+
+    <div class="method">
+
+      <div class="icon">📱</div>
+
+      <h3>Airtel Money</h3>
+
+      <p>
+        Uganda Mobile Money
+      </p>
+
+      <div class="details">
+
+        <div class="detail">
+
+          <span class="label">
+            Mobile Number
+          </span>
+
+          <span class="value">
+            0731264482
+          </span>
+
+        </div>
+
+
+        <div class="detail">
+
+          <span class="label">
+            Account Name
+          </span>
+
+          <span class="value">
+            Okiring Jovan
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="copy-btn"
+        onclick="copyText('0731264482', this)">
+        Copy Number
+      </button>
+
+    </div>
+
+
+
+    <!-- BANK -->
+
+    <div class="method">
+
+      <div class="icon">🏦</div>
+
+      <h3>Centenary Bank</h3>
+
+      <p>
+        Bank transfer
+      </p>
+
+      <div class="details">
+
+        <div class="detail">
+
+          <span class="label">
+            Account Name
+          </span>
+
+          <span class="value">
+            Okiring Jovan
+          </span>
+
+        </div>
+
+
+        <div class="detail">
+
+          <span class="label">
+            Account Number
+          </span>
+
+          <span class="value">
+            3204942758
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="copy-btn"
+        onclick="copyText('3204942758', this)">
+        Copy Account Number
+      </button>
+
+    </div>
+
+
+
+    <!-- TRON -->
+
+    <div class="method">
+
+      <div class="icon">₿</div>
+
+      <h3>TRON — TRC20</h3>
+
+      <p>
+        Cryptocurrency payment
+      </p>
+
+      <div class="details">
+
+        <div class="detail">
+
+          <span class="label">
+            TRC20 Wallet Address
+          </span>
+
+          <span class="value">
+            TCm4D4LsYm2x8nC1KDGkhiwBeUodVRj41p
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="copy-btn"
+        onclick="copyText('TCm4D4LsYm2x8nC1KDGkhiwBeUodVRj41p', this)">
+        Copy Wallet Address
+      </button>
+
+
+      <div class="warning">
+
+        ⚠️ <strong>Important:</strong>
+        Make sure you select the
+        <strong>TRC20 network</strong>
+        before sending.
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="title">
+
+    <h2>How To Complete Your Order</h2>
+
+    <p>
+      Follow these simple steps.
+    </p>
+
+  </div>
+
+
+  <div class="steps">
+
+    <div class="step">
+
+      <div class="number">01</div>
+
+      <h3>Choose</h3>
+
+      <p>
+        Select the product you want.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="number">02</div>
+
+      <h3>Pay</h3>
+
+      <p>
+        Send the exact amount using your preferred method.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="number">03</div>
+
+      <h3>Confirm</h3>
+
+      <p>
+        Keep your transaction reference or receipt.
+      </p>
+
+    </div>
+
+
+    <div class="step">
+
+      <div class="number">04</div>
+
+      <h3>Receive Access</h3>
+
+      <p>
+        After payment confirmation, receive your purchased service.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="notice">
+
+    🔐 Always
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Market Edge | Pricing & Payments</title>
@@ -127,12 +813,4 @@ h1,h2{
   <p><strong>After payment:</strong> Send your payment screenshot, full name, email, and Telegram username for approval.</p>
 
   <a class="whatsapp"
-     href="https://wa.me/256731264482?text=Hello%20Market%20Edge,%20I%20have%20made%20payment.%20Here%20is%20my%20payment%20screenshot.">
-     Send Payment Screenshot
-  </a>
-</div>
-
-</div>
-
-</body>
-</html>
+     href="https://wa.me/256731264482?text=Hello%20Market%20Edge,%20I%20have%20made%20payment.%20Here%20is%20my
