@@ -4,12 +4,656 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Market Edge | Trade. Learn. Evolve.</title>
-</head>
-<body>
-  <h1>MARKET EDGE</h1>
-  <p>Trade. Learn. Evolve.</p>
 
-  <h2>Our Services</h2>
-  <p>Forex Signals • Trading Bots • Mentorship • Education</p>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #070a0d;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7,10,13,.94);
+      border-bottom: 1px solid #1b2329;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #35e58c;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      font-size: 14px;
+      color: #b9c0c5;
+    }
+
+    .nav-links a:hover {
+      color: #35e58c;
+    }
+
+    .nav-btn {
+      background: #35e58c;
+      color: #06100a;
+      padding: 10px 17px;
+      border-radius: 8px;
+      font-weight: 800;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 100px 0 85px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(53,229,140,.13), transparent 35%),
+        #070a0d;
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid #234d39;
+      background: #0b1711;
+      color: #35e58c;
+      padding: 7px 13px;
+      border-radius: 30px;
+      font-size: 12px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 10vw, 82px);
+      line-height: .95;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #35e58c;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #aeb6bb;
+      font-size: 18px;
+    }
+
+    .hero-buttons {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 23px;
+      border-radius: 9px;
+      font-weight: 800;
+      display: inline-block;
+    }
+
+    .primary {
+      background: #35e58c;
+      color: #06100a;
+    }
+
+    .secondary {
+      border: 1px solid #303940;
+      color: #fff;
+    }
+
+    /* STATS */
+    .stats {
+      border-top: 1px solid #1b2329;
+      border-bottom: 1px solid #1b2329;
+      padding: 28px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      text-align: center;
+      gap: 20px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 25px;
+    }
+
+    .stat small {
+      color: #89939a;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 85px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #929ba1;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #0c1115;
+      border: 1px solid #1c252b;
+      border-radius: 15px;
+      padding: 30px;
+      transition: .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #35e58c;
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: #929ba1;
+      font-size: 14px;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #35e58c;
+      font-weight: bold;
+    }
+
+    /* PRICING */
+    .pricing {
+      background: #090d10;
+    }
+
+    .price-card {
+      position: relative;
+    }
+
+    .popular {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #35e58c;
+      color: #06100a;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 5px 9px;
+      border-radius: 20px;
+    }
+
+    .price {
+      font-size: 38px;
+      font-weight: 900;
+      margin: 18px 0;
+    }
+
+    .price span {
+      font-size: 13px;
+      color: #89939a;
+      font-weight: normal;
+    }
+
+    .features {
+      list-style: none;
+      color: #aab2b7;
+      font-size: 14px;
+    }
+
+    .features li {
+      margin: 12px 0;
+    }
+
+    .features li::before {
+      content: "✓";
+      color: #35e58c;
+      margin-right: 8px;
+      font-weight: bold;
+    }
+
+    .price-btn {
+      display: block;
+      text-align: center;
+      margin-top: 25px;
+      padding: 12px;
+      border: 1px solid #35e58c;
+      border-radius: 8px;
+      color: #35e58c;
+      font-weight: bold;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      background:
+        radial-gradient(circle, rgba(53,229,140,.12), transparent 45%),
+        #070a0d;
+    }
+
+    .cta h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: #929ba1;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .cta .btn {
+      margin-top: 28px;
+    }
+
+    /* FAQ */
+    .faq {
+      max-width: 750px;
+      margin: auto;
+    }
+
+    details {
+      background: #0c1115;
+      border: 1px solid #1c252b;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      padding: 18px 20px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    details p {
+      color: #929ba1;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #1b2329;
+      padding: 40px 0;
+      color: #7e878d;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .disclaimer {
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid #1b2329;
+      font-size: 11px;
+      color: #687177;
+    }
+
+    /* MOBILE */
+    @media (max-width: 750px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-inner {
+        justify-content: space-between;
+      }
+
+      .hero {
+        padding: 75px 0 65px;
+      }
+
+      .hero h1 {
+        font-size: 52px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .stats-grid,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .section-title h2 {
+        font-size: 31px;
+      }
+
+      .cta h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <div class="logo">MARKET<span>EDGE</span></div>
+
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+
+    <a class="nav-btn" href="#services">Get Started</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+
+    <div class="badge">TRADING • EDUCATION • TECHNOLOGY</div>
+
+    <h1>
+      TRADE WITH<br>
+      <span>AN EDGE.</span>
+    </h1>
+
+    <p>
+      Market Edge provides trading tools, market insights,
+      automated solutions and mentorship designed to help
+      traders build a disciplined approach to the markets.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#services" class="btn primary">Explore Services</a>
+      <a href="#pricing" class="btn secondary">View Pricing</a>
+    </div>
+
+  </div>
+</section>
+
+<div class="stats">
+  <div class="container stats-grid">
+
+    <div class="stat">
+      <strong>24/7</strong>
+      <small>Market Access</small>
+    </div>
+
+    <div class="stat">
+      <strong>FX</strong>
+      <small>Market Focus</small>
+    </div>
+
+    <div class="stat">
+      <strong>1%</strong>
+      <small>Risk Mindset</small>
+    </div>
+
+  </div>
+</div>
+
+<section id="services">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>What We Offer</h2>
+      <p>Tools and knowledge for traders at different stages.</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>Trading Signals</h3>
+        <p>
+          Receive structured market ideas with entry,
+          stop-loss and take-profit levels.
+        </p>
+        <a href="#pricing">Explore →</a>
+      </div>
+
+      <div class="card">
+        <div class="icon">🤖</div>
+        <h3>Trading Bots</h3>
+        <p>
+          Explore automated trading tools designed to
+          execute predefined strategies.
+        </p>
+        <a href="#pricing">Explore →</a>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎓</div>
+        <h3>Mentorship</h3>
+        <p>
+          Learn market structure, risk management,
+          execution and trading psychology.
+        </p>
+        <a href="#pricing">Explore →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Choose Your Edge</h2>
+      <p>Select the service that fits your trading journey.</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card price-card">
+        <h3>Signals</h3>
+        <div class="price">$XX <span>/ month</span></div>
+
+        <ul class="features">
+          <li>Trading ideas</li>
+          <li>Entry levels</li>
+          <li>Stop-loss levels</li>
+          <li>Take-profit levels</li>
+          <li>Risk guidance</li>
+        </ul>
+
+        <a href="#" class="price-btn">Get Signals</a>
+      </div>
+
+      <div class="card price-card">
+        <div class="popular">POPULAR</div>
+
+        <h3>Mentorship</h3>
+        <div class="price">$XX <span>/ program</span></div>
+
+        <ul class="features">
+          <li>Trading education</li>
+          <li>Strategy development</li>
+          <li>Risk management</li>
+          <li>Trading psychology</li>
+          <li>Community support</li>
+        </ul>
+
+        <a href="#" class="price-btn">Join Mentorship</a>
+      </div>
+
+      <div class="card price-card">
+        <h3>Trading Bot</h3>
+        <div class="price">$XX <span>/ license</span></div>
+
+        <ul class="features">
+          <li>Automated execution</li>
+          <li>Strategy-based trading</li>
+          <li>Installation guidance</li>
+          <li>Bot documentation</li>
+          <li>Technical support</li>
+        </ul>
+
+        <a href="#" class="price-btn">Get Bot</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq">
+
+      <details>
+        <summary>Are profits guaranteed?</summary>
+        <p>
+          No. Trading involves significant risk and past performance
+          does not guarantee future results.
+        </p>
+      </details>
+
+      <details>
+        <summary>What are trading signals?</summary>
+        <p>
+          Signals are market ideas containing information such as
+          a potential entry, stop-loss and take-profit level.
+        </p>
+      </details>
+
+      <details>
+        <summary>Do I need trading experience?</summary>
+        <p>
+          Beginners can start with our educational material and
+          mentorship before using advanced services.
+        </p>
+      </details>
+
+      <details>
+        <summary>How do the bots work?</summary>
+        <p>
+          Trading bots execute programmed rules automatically.
+          Results can vary depending on market conditions and settings.
+        </p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+
+    <h2>Build Your Trading Edge.</h2>
+
+    <p>
+      Learn the process. Manage your risk. Trade with discipline.
+    </p>
+
+    <a href="#pricing" class="btn primary">Explore Market Edge</a>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+
+    <div class="footer-inner">
+      <div>
+        <strong>MARKET EDGE</strong>
+      </div>
+
+      <div>
+        Trade. Learn. Evolve.
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      Risk Disclosure: Trading foreign exchange and other financial
+      instruments involves substantial risk and may not be suitable
+      for every investor. Market Edge does not guarantee profits or
+      returns. Information and signals provided are for educational
+      and informational purposes and should not be considered
+      personalized financial advice.
+    </div>
+
+    <p style="margin-top:20px;">
+      © 2026 Market Edge. All rights reserved.
+    </p>
+
+  </div>
+</footer>
+
 </body>
-</html>
+            </html>
