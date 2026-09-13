@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Market Edge</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #080a09;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      padding: 18px 20px;
+      border-bottom: 1px solid #1d3024;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .green {
+      color: #39d98a;
+    }
+
+    .logout {
+      background: transparent;
+      border: 1px solid #39d98a;
+      color: #39d98a;
+      padding: 9px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    .welcome {
+      margin-bottom: 30px;
+    }
+
+    .welcome h1 {
+      margin-bottom: 8px;
+    }
+
+    .welcome p {
+      color: #9ca8a0;
+    }
+
+    .card {
+      background: #101411;
+      border: 1px solid #1d3024;
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+    }
+
+    .product {
+      border: 1px solid #294234;
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 15px;
+    }
+
+    .product p {
+      color: #9ca8a0;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 20px;
+      background: #163a27;
+      color: #39d98a;
+      font-size: 13px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 11px 16px;
+      border-radius: 8px;
+      background: #39d98a;
+      color: #06100a;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .empty {
+      color: #9ca8a0;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    MARKET <span class="green">EDGE</span>
+  </div>
+
+  <button class="logout" id="logoutBtn">
+    Logout
+  </button>
+</header>
+
+<main>
+
+  <div class="welcome">
+    <h1>Welcome, <span class="green" id="userName">Trader</span> 👋</h1>
+    <p>Your Market Edge customer dashboard.</p>
+  </div>
+
+  <div class="card">
+    <h2>My Account</h2>
+    <p id="userEmail">Loading...</p>
+  </div>
+
+  <div class="card">
+    <h2>My Products</h2>
+
+    <div class="empty">
+      You haven't purchased any Market Edge products yet.
+      <br><br>
+      Once your payment is verified, your purchased service can appear here.
+    </div>
+
+    <a href="signals.html" class="btn">Explore Signals</a>
+    <a href="bots.html" class="btn">Explore Bots</a>
+  </div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+
+<script>
+
+  async function loadDashboard() {
+
+    const {
